@@ -140,7 +140,7 @@ def remove_invocation(text):
 def receive_message(event):
     if not event.get('text'): # Edge case
         return
-    if "Write to Scribby:" in event.get('text'):
+    if "write to scribby:" in event.get('text').lower():
       text, channel, ts, user, thread_ts = remove_invocation(event['text']), event['channel'], event['ts'], event['user'], event.get('thread_ts')
       channel_name = watched_channels.get(channel)
       if user and user != BOT_ID and channel_name:
