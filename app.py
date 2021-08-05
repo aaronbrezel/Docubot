@@ -36,6 +36,7 @@ def index():
 
 @app.route('/', methods=['POST'])
 def challenge():
+  print(request.json)
   type = request.json.get('type', None)
   challenge_code = request.json.get('challenge', None)
   if challenge_code:
@@ -43,8 +44,10 @@ def challenge():
   if type:
     event = request.json.get('event', None)
     if event == "message":
+      print('is message')
       receive_message(event)
-    if event == "reaction_added":
+    if event == "reaction_added":     
+      print('is reaction')
       reaction_added(event)
   return "bruh"
 
