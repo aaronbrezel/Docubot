@@ -1,9 +1,9 @@
 {
   "channelRules": {
-    "ideas": {
+    "interns-21": {
       "messageTrigger": "all",
       "mode": "auto",
-      "notionBaseUrl": "https://www.notion.so/...",
+      "notionBaseUrl": "https://fuzzy-ptarmigan-686.notion.site/88153cb3afb34f49a9cde5f31f2dbe19?v=bfa27906c44046d1b60b415f50b05d7b",
       "reactions": {
         "ack": "bulb",
         "normalPriority": "heavy_plus_sign",
@@ -13,28 +13,9 @@
         "unsaveMessage": "outbox_tray"
       },
       "fieldNames": {
-        "title": "Idea",
+        "title": "interns-2",
         "priority": "Importance",
         "user": "Contact"
-      }
-    },
-    "references": {
-      "notionBaseUrl": "https://www.notion.so/...",
-      "messageTrigger": "link",
-      "mode": "auto",
-      "reactions": {
-        "ack": "floppy_disk",
-        "normalPriority": "heavy_plus_sign",
-        "highPriority": "exclamation",
-        "veryHighPriority": "bangbang",
-        "saveMessage": "inbox_tray",
-        "unsaveMessage": "outbox_tray"
-      },
-      "fieldNames": {
-        "title": "Title",
-        "priority": "Importance",
-        "user": "Sourcer",
-        "link": "Link"
       }
     }
   }
