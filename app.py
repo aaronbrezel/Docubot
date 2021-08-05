@@ -34,13 +34,21 @@ def reaction_added(event, req):
 def index():
   return "<p>Hello, World!</p>"
 
-@app.route('/events', methods=['POST'])
+@app.route('/', methods=['POST'])
 def challenge():
-  print(request.json)
+  type = request.json.get('type', None)
   challenge_code = request.json.get('challenge', None)
   if challenge_code:
     return challenge_code
-  return "hi"
+  if type:
+    event = request.json.get('event', None)
+    if event == "message":
+      receive_message(event)
+    if event == "reaction_added":
+      reaction_added(event)
+  return "bruh"
+
+
 
 port = os.getenv("PORT")
 if not port:
