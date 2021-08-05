@@ -133,15 +133,19 @@ def process_reaction(reaction, channel, ts, user, channel_settings):
                 link = None
                 save_message_to_notion(ts, channel, text, get_username(user), 'Normal', None, channel_settings)
 
+def remove_invocation(text):
+    cleaned_text = re.sub(r'Write to Scribby:', '', str(text))
+    return cleaned_text
 
 def receive_message(event):
     if not event.get('text'): # Edge case
-        return 
-    text, channel, ts, user, thread_ts = event['text'], event['channel'], event['ts'], event['user'], event.get('thread_ts')
-    channel_name = watched_channels.get(channel)
-    if user and user != BOT_ID and channel_name:
-        channel_settings = settings['channelRules'][channel_name]
-        process_message(text, channel, ts, user, thread_ts, channel_settings)
+        return
+    if event.get('text').includes("Write to Scribby:"):
+      text, channel, ts, user, thread_ts = remove_invocation(event['text']), event['channel'], event['ts'], event['user'], event.get('thread_ts')
+      channel_name = watched_channels.get(channel)
+      if user and user != BOT_ID and channel_name:
+          channel_settings = settings['channelRules'][channel_name]
+          process_message(text, channel, ts, user, thread_ts, channel_settings)
         
 
 
