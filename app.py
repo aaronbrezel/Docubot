@@ -37,8 +37,11 @@ def index():
 
 @app.route('/challenge', methods=['POST'])
 def challenge():
+  print(request.json)
   challenge_code = request.json.get('challenge', None)
-  return challenge_code
+  if challenge_code:
+    return challenge_code
+  return "hi"
 
 port = os.getenv("PORT")
 if not port:
