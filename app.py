@@ -30,6 +30,10 @@ def reaction_added(event, req):
         return "Status: OK"
     receive_reaction(event['event'])
 
+@app.route('/')
+def index():
+  return "<p>Hello, World!</p>"
+
 port = os.getenv("PORT")
 if not port:
     port = 3000
