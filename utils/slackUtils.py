@@ -134,7 +134,7 @@ def process_reaction(reaction, channel, ts, user, channel_settings):
                 save_message_to_notion(ts, channel, text, get_username(user), 'Normal', None, channel_settings)
 
 def remove_invocation(text):
-    cleaned_text = re.sub(r'Write to Scribby:', '', str(text))
+    cleaned_text = re.sub(r'Write to Scribby:', '', str(text), flags=re.I)
     return cleaned_text
 
 def receive_message(event):
