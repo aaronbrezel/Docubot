@@ -48,7 +48,7 @@ def challenge():
       receive_message(event)
     if type == "reaction_added":     
       print('is reaction')
-      reaction_added(event)
+      receive_reaction(event)
   return "bruh"
 
 
