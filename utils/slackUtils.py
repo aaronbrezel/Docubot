@@ -18,7 +18,7 @@ BOT_ID = client.auth_test()['user_id']
 with open('utils/settings.json') as f:
   settings = json.load(f)
 
-data = r.get("https://slack.com/api/conversations.list?token=" + SLACK_TOKEN).json()
+data = r.get("https://slack.com/api/conversations.list", headers={"Authorization": f"Bearer {SLACK_TOKEN}"}).json()
 watched_channels = {c['id']: c['name'] for c in data['channels'] if settings['channelRules'].get(c['name'])}
   
 # Utility Functions
