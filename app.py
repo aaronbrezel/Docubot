@@ -37,7 +37,7 @@ def index():
 
 @app.route('/challenge', methods=['POST'])
 def challenge():
-  challenge_code = request.args.get('challenge')
+  challenge_code = request.args.get('challenge') or request.json['challenge']
   return challenge_code
 
 port = os.getenv("PORT")
