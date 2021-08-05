@@ -1,5 +1,4 @@
 from dotenv import load_dotenv
-from pprint import pprint
 import requests as r
 from utils.notionUtils import create_notion_row, delete_notion_row, add_comment_to_notion_row, update_properties_on_notion_row
 from utils.db import find_tracked_message, track_message, untrack_message
