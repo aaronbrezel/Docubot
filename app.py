@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from utils.slackeventsapi import SlackEventAdapter
 from dotenv import load_dotenv
 import os
@@ -33,6 +33,12 @@ def reaction_added(event, req):
 @app.route('/')
 def index():
   return "<p>Hello, World!</p>"
+
+
+@app.route('/challenge', methods=['POST'])
+def challenge():
+  challenge_code = request.args.get('challenge')
+  return challenge_code
 
 port = os.getenv("PORT")
 if not port:
