@@ -19,8 +19,8 @@ with open('utils/settings.json') as f:
   settings = json.load(f)
 
 data = r.get("https://slack.com/api/conversations.list", headers={"Authorization": f"Bearer {SLACK_TOKEN}"}).json()
-watched_channels = {c['id']: c['name'] for c in data['channels']}
-  
+watched_channels = {'C02362Y9LJ0': 'interns-21'}
+
 # Utility Functions
 def send_message(channel, message, thread_ts=None):
     try: 
