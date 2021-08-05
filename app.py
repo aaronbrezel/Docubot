@@ -34,7 +34,7 @@ def reaction_added(event, req):
 def index():
   return "<p>Hello, World!</p>"
 
-@app.route('/', methods=['POST'])
+@app.route('/events', methods=['POST'])
 def challenge():
   print(request.json)
   challenge_code = request.json.get('challenge', None)
