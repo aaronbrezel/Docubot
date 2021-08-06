@@ -140,12 +140,18 @@ def remove_invocation(text):
 def receive_message(event):
     if not event.get('text'): # Edge case
         return
-    flag_process_message = True
+        flag_process_message = True
     thread_ts = event.get('thread_ts')
     if not thread_ts:
       flag_process_message = "write to scribby:" in event.get('text').lower()
     if flag_process_message:
       text, channel, ts, user = remove_invocation(event['text']), event['channel'], event['ts'], event['user']
+      channel_name = watched_channels.get(channel)
+      if user and user != BOT_ID and channel_name:
+          channel_settings = settings['channelRules'][channel_name]
+          process_message(text, channel, ts, user, thread_ts, channel_settings)
+    if "write to scribby:" in event.get('text').lower():
+      text, channel, ts, user, thread_ts = remove_invocation(event['text']), event['channel'], event['ts'], event['user'], event.get('thread_ts')
       channel_name = watched_channels.get(channel)
       if user and user != BOT_ID and channel_name:
           channel_settings = settings['channelRules'][channel_name]

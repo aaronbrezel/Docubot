@@ -18,12 +18,12 @@ def index():
 @app.route('/', methods=['POST'])
 def challenge():
   print(request.json)
-  event = request.json.get('event', None)
-  challenge_code = request.json.get('challenge', None)
+  event = request.json.get('event')
+  challenge_code = request.json.get('challenge')
   if challenge_code:
     return challenge_code
   if event:
-    type = event.get('type', None)
+    type = event.get('type')
     if type == "message":
       receive_message(event)
     if type == "reaction_added":     
