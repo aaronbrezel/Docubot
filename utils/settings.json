@@ -3,7 +3,7 @@
     "interns-21": {
       "messageTrigger": "all",
       "mode": "auto",
-      "notionBaseUrl": "https://www.notion.so/4038c7934af646f2ae3ae1fa354678d6?v=9e414ebb60fc4c458631eb0e2b4b3ad6",
+      "notionBaseUrl": "https://www.notion.so/3d0b48bbb3e348229b1bd362a3c64a2d?v=1174f19026f14ebc88d73ab506328c93",
       "reactions": {
         "ack": "bulb",
         "normalPriority": "heavy_plus_sign",
@@ -13,7 +13,7 @@
         "unsaveMessage": "outbox_tray"
       },
       "fieldNames": {
-        "title": "Message",
+        "title": "Title",
         "priority": "Importance",
         "user": "Contact"
       }
