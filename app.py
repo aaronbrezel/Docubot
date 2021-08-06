@@ -1,4 +1,5 @@
 from flask import Flask, request
+from utils.slackeventsapi import SlackEventAdapter
 from dotenv import load_dotenv
 import os
 from utils.slackUtils import receive_message, receive_reaction
@@ -10,6 +11,7 @@ SLACK_SIGNING_SECRET = os.getenv("SLACK_SIGNING_SECRET")
 
 # This `app` represents your existing Flask app
 app = Flask(__name__)
+slack_events_adapter = SlackEventAdapter(SLACK_SIGNING_SECRET, "/events", app)
 
 @app.route('/')
 def index():
